@@ -19,8 +19,8 @@
     WebView  *_webView;
     NSDictionary*_commands;
 }
-- (id)initWithWebView:(WebView*)view path:(NSString*)path;
-- (id)initWithWebView:(WebView*)view path:(NSString*)path customScheme:(NSString*)scheme;
+- (id)initWithWebView:(WebView*)view path:(NSURL*)path;
+- (id)initWithWebView:(WebView*)view path:(NSURL*)path customScheme:(NSString*)scheme;
 
 - (NSString*)runJavascript:(NSString*)script;
 
