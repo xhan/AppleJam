@@ -14,4 +14,7 @@
     AppleJam* _jam; //assign
 }
 - (id)initWithJam:(AppleJam*)jam;
+@property(assign,nonatomic) AppleJam* jam;
+
+- (NSString*)runScript:(NSString*)script;
 @end

@@ -48,7 +48,13 @@
 
 #pragma mark -
 
-- (NSString*)runJavascript:(NSString*)script
+- (void)setLoadedCallback:(id)target sel:(SEL)sel
+{
+    callback = target;
+    selector = sel;
+}
+
+- (NSString*)runScript:(NSString*)script
 {
     return [_webView stringByEvaluatingJavaScriptFromString:script];
 }
@@ -86,7 +92,7 @@
     if (!command) {
             command = [[NSClassFromString(klass) alloc] initWithJam:self];
         if (command) {
-            [_commands setValue:command forKey:klass];
+            [_commands setObject:command forKey:klass];
             [command release];
         }
     }
@@ -135,4 +141,19 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
      */
 }
 
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    [callback performSelector:selector
+                   withObject:self];
+}
+
+
+- (void)addCommandInstance:(JamCommand*)command
+{
+    if (command) {
+        command.jam = self;
+        [_commands setObject:command forKey:NSStringFromClass(command.class)]; 
+    }
+}
 @end

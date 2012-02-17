@@ -17,12 +17,20 @@
 {
     NSString *_scheme;
     WebView  *_webView;
-    NSDictionary*_commands;
+    NSMutableDictionary*_commands;
+    
+    id callback;
+    SEL selector;
 }
 - (id)initWithWebView:(WebView*)view path:(NSURL*)path;
 - (id)initWithWebView:(WebView*)view path:(NSURL*)path customScheme:(NSString*)scheme;
 
-- (NSString*)runJavascript:(NSString*)script;
+- (NSString*)runScript:(NSString*)script;
 
 - (BOOL)runCommandFromURL:(NSURL*)url;
+
+// -pageLoaded:(AppleJam*)jam
+- (void)setLoadedCallback:(id)target sel:(SEL)sel;
+
+- (void)addCommandInstance:(JamCommand*)command;
 @end

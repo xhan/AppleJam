@@ -7,13 +7,20 @@
 //
 
 #import "JamCommand.h"
+#import "AppleJam.h"
 
 @implementation JamCommand
-- (id)initWithJam:(AppleJam*)jam
+@synthesize jam;
+- (id)initWithJam:(AppleJam*)ajam
 {
     self = [super init];
-    _jam = jam;
+    _jam = ajam;
     return self;
+}
+
+- (NSString*)runScript:(NSString*)script
+{
+    return [_jam runScript:script];
 }
 
 @end
