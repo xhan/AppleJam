@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-@class WebView;
+// TODO: 右键处理
+// TODO: global drag, scroll event prevent
+// TODO: 属性控制, 是否有窗口等
+
+@class WebView,JamCommand;
 @interface AppleJam : NSObject
 {
-    NSString *scheme;
-    WebView  *webView;
-    NSDictionary*commands;
+    NSString *_scheme;
+    WebView  *_webView;
+    NSDictionary*_commands;
 }
 - (id)initWithWebView:(WebView*)view path:(NSString*)path;
 - (id)initWithWebView:(WebView*)view path:(NSString*)path customScheme:(NSString*)scheme;
 
-- (void)runJavascript:(NSString*)script;
+- (NSString*)runJavascript:(NSString*)script;
+
+- (BOOL)runCommandFromURL:(NSURL*)url;
 @end
