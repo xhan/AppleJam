@@ -4,10 +4,13 @@ Jam.importScript = function(path){
 	document.write('<script src="'+path+'" type="text/javascript"><\/'+'script>');
 };
 
-Jam.send_message = function(msg,scheme){
+Jam.send_message = function(msg,params,scheme){
 	if(!msg) return;
 	scheme = scheme || 'ajam';
-	window.location.href = scheme+':'+msg;
+	if (!params)
+		window.location.href = scheme+':'+msg;
+	else
+		window.location.href = scheme+':'+msg+'?'+encodeURIComponent(JSON.stringify(params));
 };
 
 /*
@@ -60,6 +63,25 @@ player.togglePlay = function(){
 player.nextTrack = function(){
 	Jam.send_message("Player.nextTrack");
 }
+player.changeVolume = function(volume){
+	Jam.send_message("Player.changeVolume",volume);
+}
+
+player.changeProgress = function(progress){
+	Jam.send_message("Player.changeProgress",progress);
+}
+
+player.closeWindow = function() {
+	Jam.send_message("Player.closeWindow");
+}
+
+player.minimizeWindow = function(){
+	Jam.send_message("Player.minimizeWindow");
+}
+
+player.showChannelList = function(){
+	Jam.send_message("Player.showChannelList");
+}
 
 player.getSongLength = function(){
 	if (player.track && player.track.length && +player.track.length > 0)
@@ -96,8 +118,8 @@ var app_channel_changed = function(index){
 
 /* return true if isPlaying */
 var app_player_state_change = function(isPlaying,isWaiting){
-	player.isPlaying = isPlaying;
-	player.isWaiting = isWaiting;
+	if(isPlaying != null)	player.isPlaying = isPlaying;
+	if(isWaiting != null)   player.isWaiting = isWaiting;	
 	if (cb_player_state_changed)
 		cb_player_state_changed.call(this);
 }

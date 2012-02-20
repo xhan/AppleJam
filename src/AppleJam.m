@@ -33,6 +33,11 @@
         
         [_webView setPolicyDelegate:self];  //handle navigation
         [_webView setFrameLoadDelegate:self];//hanlde load state
+        [_webView setEditingDelegate:self]; //disable text selection
+        [_webView setUIDelegate:self];
+        [_webView setDrawsBackground:NO];   //remove background
+        //disable scroll (but also can be disabled in css
+        [[[_webView mainFrame] frameView] setAllowsScrolling:NO];
         [[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:path]];
     }
     return self;
@@ -60,6 +65,7 @@
 }
 
 // scheme:ClassName.method?params
+// todo: 这个方法写的太难看了
 - (BOOL)runCommandFromURL:(NSURL*)url
 {
     NSString* scheme = [url scheme];
@@ -76,6 +82,7 @@
         
         //decode json values
         params = [params objectFromJSONString];
+        klassAndMethod = [klassAndMethod stringByAppendingString:@":"]; // params support
     }else{
         klassAndMethod = action;
     }
@@ -148,6 +155,23 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
                    withObject:self];
 }
 
+- (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element 
+    defaultMenuItems:(NSArray *)defaultMenuItems
+{
+    // disable right-click context menu
+    return nil;
+}
+
+- (BOOL)webView:(WebView *)webView shouldChangeSelectedDOMRange:(DOMRange *)currentRange 
+     toDOMRange:(DOMRange *)proposedRange 
+       affinity:(NSSelectionAffinity)selectionAffinity 
+ stillSelecting:(BOOL)flag
+{
+    // disable text selection
+    return NO;
+}
+
+#pragma mark -
 
 - (void)addCommandInstance:(JamCommand*)command
 {
