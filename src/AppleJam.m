@@ -13,6 +13,10 @@
 
 #define AppleJamScheme @"ajam"
 
+@interface AppleJam()
+- (void)insertJavascriptFile:(NSString*)path;
+@end
+
 @implementation AppleJam
 
 #pragma mark -
@@ -36,6 +40,7 @@
         [_webView setEditingDelegate:self]; //disable text selection
         [_webView setUIDelegate:self];
         [_webView setDrawsBackground:NO];   //remove background
+        
         //disable scroll (but also can be disabled in css
         [[[_webView mainFrame] frameView] setAllowsScrolling:NO];
         [[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:path]];
@@ -140,12 +145,11 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
 
 - (void)webView:(WebView *)awebView didClearWindowObject:(WebScriptObject *)windowObject forFrame:(WebFrame *)frame
 {
-    /*
-    NSURL* url = [[NSBundle mainBundle] URLForResource:@"AppleJam.js" withExtension:nil];
-    NSString* str = [NSString stringWithFormat:@"document.write(\"<script src='%@' type='text/javascript'></script>\")",[url absoluteString]];
-    NSLog(@"%@",str);
-    [self runJavascript:str];
-     */
+    
+//    NSString* jquery = [[NSBundle mainBundle] pathForResource:@"jquery.js" ofType:nil];
+    NSString* jam = [[NSBundle mainBundle] pathForResource:@"AppleJamBase.js" ofType:nil];
+//    [self insertJavascriptFile:jquery];
+    [self insertJavascriptFile:jam];
 }
 
 
@@ -179,5 +183,12 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
         command.jam = self;
         [_commands setObject:command forKey:NSStringFromClass(command.class)]; 
     }
+}
+
+- (void)insertJavascriptFile:(NSString*)path
+{
+    NSString* str = [NSString stringWithFormat:@"document.write(\"<script src='%@' type='text/javascript'></script>\")",path];
+    //    NSLog(@"%@",str);
+    [self runScript:str];
 }
 @end
