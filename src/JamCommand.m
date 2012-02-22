@@ -10,7 +10,7 @@
 #import "AppleJam.h"
 
 @implementation JamCommand
-@synthesize jam;
+@synthesize jam = _jam;
 - (id)initWithJam:(AppleJam*)ajam
 {
     self = [super init];
