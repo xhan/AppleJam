@@ -93,8 +93,7 @@ player.getProgress = function(){
 	// Math.ceil
 	var length = player.getSongLength();
 	if(length) return player.location / length;
-	else return 0;
-	
+	else return 0;	
 }
 
 var app_song_changed = function(track)
