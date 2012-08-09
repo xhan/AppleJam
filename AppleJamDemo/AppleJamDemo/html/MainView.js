@@ -4,7 +4,7 @@ Jam.define("mainview",function(){
         Jam.exec(service,"messagesend");
     }
     var getValue = function(delegate){
-        Jam.exec(service,"getvalue",function(value){
+        Jam.exec(service,"getvalue","88?/a.b88#",function(value){
             delegate.call(this,value);
         });
     }

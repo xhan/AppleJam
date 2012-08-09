@@ -10,6 +10,17 @@
 
 #import "JamCommand.h"
 
+@protocol MainViewBridgeDelegate <NSObject>
+
+@required
+- (void)messagesend;
+- (void)getvalue:(id)value;
+- (void)startUpdate;
+- (void)stopUpdate;
+@end
+
+
 @interface MainViewBridge : JamCommand
+@property(weak) id<MainViewBridgeDelegate> delegate;
 
 @end

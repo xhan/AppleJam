@@ -50,7 +50,7 @@ Jam.define("bridge",function(){
     var exec_message = function(service,message,params,callback){
     	if(!message) return;
     	scheme = 'ajam';
-    	var url = scheme+':'+ service + '.' + message;
+    	var url = scheme+'://'+ service + '.' + message;
     	
     	if (typeof(params) == 'function'){
     	    if(!callback)
@@ -58,17 +58,18 @@ Jam.define("bridge",function(){
         	else
                 return; //argus error
     	}
-    	        	    
+    	if (params)
+    	    url += "?" + encodeURIComponent(JSON.stringify(params));
+    	        	        	    
     	if (callback) {
     	    callback_count += 1;
     	    callbacks[callback_count] = callback;    	    
-    	    url += "/" + callback_count;
+    	    url += "#" + callback_count;
     	};
     	
-    	if (params)
-    	    url += "?" + encodeURIComponent(JSON.stringify(params));
+
     	console.debug(url);
-        // window.location.href = url;
+        window.location.href = url;
     };
     
     var callback = function(id,is_remove,args){
@@ -79,7 +80,7 @@ Jam.define("bridge",function(){
             delete callbacks[id];        
     }
     Jam.exec = exec_message;
-    Jam.callback = exec_message.callback;    
+    Jam.callback = callback;    
     return {exec:exec_message,callback:callback};
 });
 

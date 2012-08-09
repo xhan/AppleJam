@@ -78,25 +78,15 @@
 - (BOOL)runCommandFromURL:(NSURL*)url
 {
     NSString* scheme = [url scheme];
-    NSString* action = [url resourceSpecifier];
+    NSString* action = [url host];
+    NSString* params = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString* callbackID=[url fragment];
     if (![scheme isEqualToString:_scheme]) return NO;
     
-    NSString *klass =nil ,*method =nil, *params = nil, *klassAndMethod;
+    NSString *klass =nil ,*method =nil ;
     
-    NSArray* arySplitByParam = [action componentsSeparatedByString:@"?"];    
-    if (arySplitByParam.count > 1) {
-        // we do have params
-        klassAndMethod = arySplitByParam[0];
-        params = [action stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@?,klassAndMethod"] withString:@""];           
-        
-        //decode json values
-        params = [params objectFromJSONString];
-        klassAndMethod = [klassAndMethod stringByAppendingString:@":"]; // params support
-    }else{
-        klassAndMethod = action;
-    }
-    
-    NSArray* aryClassAndMethod = [klassAndMethod componentsSeparatedByString:@"."];
+    //get class and method
+    NSArray* aryClassAndMethod = [action componentsSeparatedByString:@"."];
     if (aryClassAndMethod.count == 2){
         klass = aryClassAndMethod[0];
         method= aryClassAndMethod[1];
@@ -104,6 +94,17 @@
     
     if (!(klass && method)) return NO;
     
+    if (params) {
+        params = [params objectFromJSONString]; //TODO: decode
+        method = [method stringByAppendingString:@":"];
+    }
+    
+//    if (callbackID) {
+//        [method stringByAppendingString:@":"];
+//    }
+    
+    
+        
     JamCommand* command = _commands[klass];
     if (!command) {
             command = [[NSClassFromString(klass) alloc] initWithJam:self];
@@ -113,9 +114,16 @@
         }
     }
     
-    if ([command respondsToSelector:NSSelectorFromString(method)]) {
-        [command performSelector:NSSelectorFromString(method)
+    SEL _selector = NSSelectorFromString(method);
+    if ([command respondsToSelector:_selector]) {
+        
+        if (callbackID) {
+            command.callbackID = callbackID;
+        }
+        
+        [command performSelector:_selector
                       withObject:params];
+        
         return YES;
     }
     return NO;

@@ -19,3 +19,8 @@ TODOS
 * demo with params support
 * xcode debug support
 * call queue
+
+ajam://MainViewBridge.getvalue?100#1
+host -> MainViewBridge.getvalue
+query -> params
+fragment -> callback
