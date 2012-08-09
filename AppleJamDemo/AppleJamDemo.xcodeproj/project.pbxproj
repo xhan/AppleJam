@@ -14,12 +14,15 @@
 		CA10DEF615D3F42800D46987 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DEF515D3F42800D46987 /* AppDelegate.m */; };
 		CA10DEF915D3F42900D46987 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10DEF715D3F42900D46987 /* MainMenu.xib */; };
 		CA10DF0515D3F87E00D46987 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA10DF0415D3F87D00D46987 /* WebKit.framework */; };
-		CA10DF0F15D3F8AB00D46987 /* AppleJam.js in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0815D3F8AB00D46987 /* AppleJam.js */; };
+		CA10DF0F15D3F8AB00D46987 /* AppleJam.js in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF0815D3F8AB00D46987 /* AppleJam.js */; };
 		CA10DF1015D3F8AB00D46987 /* AppleJam.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0915D3F8AB00D46987 /* AppleJam.m */; };
 		CA10DF1115D3F8AB00D46987 /* JamCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0B15D3F8AB00D46987 /* JamCommand.m */; };
-		CA10DF1215D3F8AB00D46987 /* jquery.js in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0C15D3F8AB00D46987 /* jquery.js */; };
-		CA10DF1315D3F8AB00D46987 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0E15D3F8AB00D46987 /* JSONKit.m */; };
+		CA10DF1215D3F8AB00D46987 /* jquery.js in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF0C15D3F8AB00D46987 /* jquery.js */; };
+		CA10DF1315D3F8AB00D46987 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0E15D3F8AB00D46987 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CA10DF1515D3F8BD00D46987 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF1415D3F8BD00D46987 /* README.mdown */; };
+		CA10DF1915D3FAE100D46987 /* MainView.html in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF1715D3FAE100D46987 /* MainView.html */; };
+		CA10DF1A15D3FAE100D46987 /* MainView.js in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF1815D3FAE100D46987 /* MainView.js */; };
+		CA10DF1D15D3FB2600D46987 /* MainViewBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF1C15D3FB2600D46987 /* MainViewBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,11 @@
 		CA10DF0D15D3F8AB00D46987 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		CA10DF0E15D3F8AB00D46987 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		CA10DF1415D3F8BD00D46987 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.mdown; path = ../README.mdown; sourceTree = "<group>"; };
+		CA10DF1715D3FAE100D46987 /* MainView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MainView.html; sourceTree = "<group>"; };
+		CA10DF1815D3FAE100D46987 /* MainView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = MainView.js; sourceTree = "<group>"; };
+		CA10DF1B15D3FB2600D46987 /* MainViewBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewBridge.h; sourceTree = "<group>"; };
+		CA10DF1C15D3FB2600D46987 /* MainViewBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewBridge.m; sourceTree = "<group>"; };
+		CA10DF2215D3FC5500D46987 /* AppleJamHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleJamHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 		CA10DED315D3F42800D46987 = {
 			isa = PBXGroup;
 			children = (
+				CA10DF1615D3FAE100D46987 /* html */,
 				CA10DF1415D3F8BD00D46987 /* README.mdown */,
 				CA10DF0615D3F8AB00D46987 /* src */,
 				CA10DEE815D3F42800D46987 /* AppleJamDemo */,
@@ -103,6 +112,8 @@
 		CA10DEE815D3F42800D46987 /* AppleJamDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CA10DF1B15D3FB2600D46987 /* MainViewBridge.h */,
+				CA10DF1C15D3FB2600D46987 /* MainViewBridge.m */,
 				CA10DEF415D3F42800D46987 /* AppDelegate.h */,
 				CA10DEF515D3F42800D46987 /* AppDelegate.m */,
 				CA10DEF715D3F42900D46987 /* MainMenu.xib */,
@@ -134,9 +145,20 @@
 				CA10DF0C15D3F8AB00D46987 /* jquery.js */,
 				CA10DF0D15D3F8AB00D46987 /* JSONKit.h */,
 				CA10DF0E15D3F8AB00D46987 /* JSONKit.m */,
+				CA10DF2215D3FC5500D46987 /* AppleJamHeader.h */,
 			);
 			name = src;
 			path = ../src;
+			sourceTree = "<group>";
+		};
+		CA10DF1615D3FAE100D46987 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				CA10DF1715D3FAE100D46987 /* MainView.html */,
+				CA10DF1815D3FAE100D46987 /* MainView.js */,
+			);
+			name = html;
+			path = AppleJamDemo/html;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,10 +212,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA10DF1A15D3FAE100D46987 /* MainView.js in Resources */,
+				CA10DF0F15D3F8AB00D46987 /* AppleJam.js in Resources */,
+				CA10DF1215D3F8AB00D46987 /* jquery.js in Resources */,
 				CA10DEED15D3F42800D46987 /* InfoPlist.strings in Resources */,
 				CA10DEF315D3F42800D46987 /* Credits.rtf in Resources */,
 				CA10DEF915D3F42900D46987 /* MainMenu.xib in Resources */,
 				CA10DF1515D3F8BD00D46987 /* README.mdown in Resources */,
+				CA10DF1915D3FAE100D46987 /* MainView.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,11 +232,10 @@
 			files = (
 				CA10DEEF15D3F42800D46987 /* main.m in Sources */,
 				CA10DEF615D3F42800D46987 /* AppDelegate.m in Sources */,
-				CA10DF0F15D3F8AB00D46987 /* AppleJam.js in Sources */,
 				CA10DF1015D3F8AB00D46987 /* AppleJam.m in Sources */,
 				CA10DF1115D3F8AB00D46987 /* JamCommand.m in Sources */,
-				CA10DF1215D3F8AB00D46987 /* jquery.js in Sources */,
 				CA10DF1315D3F8AB00D46987 /* JSONKit.m in Sources */,
+				CA10DF1D15D3FB2600D46987 /* MainViewBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

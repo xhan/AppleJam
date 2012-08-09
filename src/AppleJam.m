@@ -32,7 +32,9 @@
     self = [super init];
     if (self) {
         _scheme = [scheme copy];
-        _webView = [view retain];
+        _webView = view;
+        II_RETAIN(_webView);
+        
         _commands = [[NSMutableDictionary alloc] init];
         
         [_webView setPolicyDelegate:self];  //handle navigation
@@ -48,6 +50,7 @@
     return self;
 }
 
+#if !II_ARC_ENABLED
 - (void)dealloc
 {
     [_scheme release];
@@ -55,6 +58,7 @@
     [_commands release];
     [super dealloc];
 }
+#endif
 
 #pragma mark -
 
@@ -105,7 +109,7 @@
             command = [[NSClassFromString(klass) alloc] initWithJam:self];
         if (command) {
             _commands[klass] = command;
-            [command release];
+            II_RELEASE(command);
         }
     }
     

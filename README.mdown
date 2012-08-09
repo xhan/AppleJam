@@ -7,6 +7,15 @@ AppleJam : a bridge between javascript and objective-c on osx-plantform
 
 Quick Start
 -----------
-* #import <WebKit/WebKit.h>
+* #import `<WebKit/WebKit.h>`
+* for ARC project, add `-fno-objc-arc` to non-arc files (such as JSONKit)
 * and .... or just open demo project and see how it work
 
+TODOS
+-----------
+* callback supports
+* callback return value
+* basic demo
+* demo with params support
+* xcode debug support
+* call queue

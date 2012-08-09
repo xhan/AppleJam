@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AppleJamHeader.h"
 // TODO: 右键处理
 // TODO: global drag, scroll event prevent
 // TODO: 属性控制, 是否有窗口等

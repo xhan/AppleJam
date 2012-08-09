@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <script type="text/javascript" src="AppleJam.js"></script>
+    	<script type="text/javascript" src="MainView.js"></script>        
+        <script type="text/javascript" src="jquery.js"></script>        
+        
+        <script type="text/javascript">
+        Jam.ready( function(){
+			$('h1').text("Apple Jam is rocking!");
+
+			$('button').click(function(){
+				var identify = $(this).attr('id');
+				switch(identify){
+					case 'sendmsg':
+						mainview.sendMsg();
+						break;
+					case 'getv':
+						mainview.getValue(function(value){
+							$('#getv').text(value);
+						});
+						break;
+					case 'start':
+						mainview.startUpdate(function(value){
+							$("#start").text(value);
+						});
+						break;
+					case 'stop':
+						mainview.stopUpdate();
+						break;
+					default:break;
+				}
+			});
+			
+		});
+        </script>
+    </head>
+    <body>
+    	<h1>Apple Jam init...</h1>
+    	<p> what about write cocoa interface in html?</p>
+		
+    	<button id="sendmsg">send message</button>
+		<button id="getv">get value</button>
+		<br />
+		<button id="start">start update</button>
+		<button id="stop">stop update</button>
+		
+    </body>
+</html>
