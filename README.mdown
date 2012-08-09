@@ -1,1 +1,12 @@
-init
+AppleJam : a bridge between javascript and objective-c on osx-plantform
+-----------
+* the project became active again since you saw this message(2012/08/09)
+* current version was inspired by PhoneGap
+* iam a beginner of javascript, any suggestions and improvements are welcome
+
+
+Quick Start
+-----------
+* #import <WebKit/WebKit.h>
+* and .... or just open demo project and see how it work
+

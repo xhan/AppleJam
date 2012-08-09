@@ -13,6 +13,13 @@
 		CA10DEF315D3F42800D46987 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CA10DEF115D3F42800D46987 /* Credits.rtf */; };
 		CA10DEF615D3F42800D46987 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DEF515D3F42800D46987 /* AppDelegate.m */; };
 		CA10DEF915D3F42900D46987 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10DEF715D3F42900D46987 /* MainMenu.xib */; };
+		CA10DF0515D3F87E00D46987 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA10DF0415D3F87D00D46987 /* WebKit.framework */; };
+		CA10DF0F15D3F8AB00D46987 /* AppleJam.js in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0815D3F8AB00D46987 /* AppleJam.js */; };
+		CA10DF1015D3F8AB00D46987 /* AppleJam.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0915D3F8AB00D46987 /* AppleJam.m */; };
+		CA10DF1115D3F8AB00D46987 /* JamCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0B15D3F8AB00D46987 /* JamCommand.m */; };
+		CA10DF1215D3F8AB00D46987 /* jquery.js in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0C15D3F8AB00D46987 /* jquery.js */; };
+		CA10DF1315D3F8AB00D46987 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF0E15D3F8AB00D46987 /* JSONKit.m */; };
+		CA10DF1515D3F8BD00D46987 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF1415D3F8BD00D46987 /* README.mdown */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +35,17 @@
 		CA10DEF215D3F42800D46987 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		CA10DEF415D3F42800D46987 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CA10DEF515D3F42800D46987 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CA10DEF815D3F42900D46987 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CA10DEFF15D3F66100D46987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CA10DF0415D3F87D00D46987 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		CA10DF0715D3F8AB00D46987 /* AppleJam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleJam.h; sourceTree = "<group>"; };
+		CA10DF0815D3F8AB00D46987 /* AppleJam.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AppleJam.js; sourceTree = "<group>"; };
+		CA10DF0915D3F8AB00D46987 /* AppleJam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleJam.m; sourceTree = "<group>"; };
+		CA10DF0A15D3F8AB00D46987 /* JamCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JamCommand.h; sourceTree = "<group>"; };
+		CA10DF0B15D3F8AB00D46987 /* JamCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JamCommand.m; sourceTree = "<group>"; };
+		CA10DF0C15D3F8AB00D46987 /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
+		CA10DF0D15D3F8AB00D46987 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		CA10DF0E15D3F8AB00D46987 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		CA10DF1415D3F8BD00D46987 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.mdown; path = ../README.mdown; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA10DF0515D3F87E00D46987 /* WebKit.framework in Frameworks */,
 				CA10DEE315D3F42800D46987 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +64,8 @@
 		CA10DED315D3F42800D46987 = {
 			isa = PBXGroup;
 			children = (
+				CA10DF1415D3F8BD00D46987 /* README.mdown */,
+				CA10DF0615D3F8AB00D46987 /* src */,
 				CA10DEE815D3F42800D46987 /* AppleJamDemo */,
 				CA10DEE115D3F42800D46987 /* Frameworks */,
 				CA10DEDF15D3F42800D46987 /* Products */,
@@ -63,6 +83,7 @@
 		CA10DEE115D3F42800D46987 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA10DF0415D3F87D00D46987 /* WebKit.framework */,
 				CA10DEE215D3F42800D46987 /* Cocoa.framework */,
 				CA10DEE415D3F42800D46987 /* Other Frameworks */,
 			);
@@ -100,6 +121,22 @@
 				CA10DEF115D3F42800D46987 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA10DF0615D3F8AB00D46987 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CA10DF0715D3F8AB00D46987 /* AppleJam.h */,
+				CA10DF0815D3F8AB00D46987 /* AppleJam.js */,
+				CA10DF0915D3F8AB00D46987 /* AppleJam.m */,
+				CA10DF0A15D3F8AB00D46987 /* JamCommand.h */,
+				CA10DF0B15D3F8AB00D46987 /* JamCommand.m */,
+				CA10DF0C15D3F8AB00D46987 /* jquery.js */,
+				CA10DF0D15D3F8AB00D46987 /* JSONKit.h */,
+				CA10DF0E15D3F8AB00D46987 /* JSONKit.m */,
+			);
+			name = src;
+			path = ../src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +193,7 @@
 				CA10DEED15D3F42800D46987 /* InfoPlist.strings in Resources */,
 				CA10DEF315D3F42800D46987 /* Credits.rtf in Resources */,
 				CA10DEF915D3F42900D46987 /* MainMenu.xib in Resources */,
+				CA10DF1515D3F8BD00D46987 /* README.mdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +206,11 @@
 			files = (
 				CA10DEEF15D3F42800D46987 /* main.m in Sources */,
 				CA10DEF615D3F42800D46987 /* AppDelegate.m in Sources */,
+				CA10DF0F15D3F8AB00D46987 /* AppleJam.js in Sources */,
+				CA10DF1015D3F8AB00D46987 /* AppleJam.m in Sources */,
+				CA10DF1115D3F8AB00D46987 /* JamCommand.m in Sources */,
+				CA10DF1215D3F8AB00D46987 /* jquery.js in Sources */,
+				CA10DF1315D3F8AB00D46987 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +236,7 @@
 		CA10DEF715D3F42900D46987 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CA10DEF815D3F42900D46987 /* en */,
+				CA10DEFF15D3F66100D46987 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
