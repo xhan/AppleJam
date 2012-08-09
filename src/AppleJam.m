@@ -73,10 +73,16 @@
     return [_webView stringByEvaluatingJavaScriptFromString:script];
 }
 
-// scheme:ClassName.method?params
-// todo: 这个方法写的太难看了
+
 - (BOOL)runCommandFromURL:(NSURL*)url
 {
+    /*
+     ajam://MainViewBridge.getvalue?100#1
+     host -> MainViewBridge.getvalue
+     query -> params
+     fragment -> callback
+     */
+    
     NSString* scheme = [url scheme];
     NSString* action = [url host];
     NSString* params = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
