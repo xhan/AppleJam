@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'AppleJamDemo' target in the 'AppleJamDemo' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

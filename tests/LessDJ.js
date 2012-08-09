@@ -1,7 +1,7 @@
 Jam.define("dj",function(){
     
-    var exec = function(msg,params){
-        Jam.send("Player."+msg,params);
+    var exec = function(msg,params,callback){
+        Jam.exec("Player",msg,params,callback);
     }
     
     var player = {
@@ -25,10 +25,10 @@ Jam.define("dj",function(){
         	exec("closeWindow");
         },
         minimizeWindow: function(){
-        	Jam.send("Player.minimizeWindow");
+        	exec("minimizeWindow");
         },
         showChannelList: function(){
-        	Jam.send("Player.showChannelList");
+        	exec("showChannelList");
         },
         getSongLength: function(){
         	if (player.track && player.track.length && +player.track.length > 0)
@@ -41,21 +41,19 @@ Jam.define("dj",function(){
         	if(length) return player.location / length;
         	else return 0;	
         },
-        onSongChanged: function(){
-            
+        onSongChanged: function(delegate){
+            exec("onSongChanged",function(track){
+                player.track = track;
+                delegate.call(this,track);
+            });
         }
         
     };
     
-    var cb_song_changed = null;
-    var cb_channel_changed = null;
-    var cb_artwork_changed = null;
-    var cb_player_state_changed = null;
     
-    return {
-        player:player,
-        
-    };
+    Jam.player = player;
+    return player;
+    
 });
 
 

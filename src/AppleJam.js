@@ -85,17 +85,17 @@ Jam.define("bridge",function(){
 
 
 Jam.define('ready',function(){
-     var timer = setInterval(function(){
-                             var state = document.readyState;
-                             if ( ( state == 'loaded' || state == 'complete' ) )
-                             {
-                             clearInterval(timer);
-
-                             var e = document.createEvent('Events');
-                             e.initEvent('jam_loaded',true,true);
-                             document.dispatchEvent(e);
-                             }
-                             },1);
+     var timer = setInterval(
+         function(){
+             var state = document.readyState;
+             if ( ( state == 'loaded' || state == 'complete' ) ) {
+                 console.debug("document ready");
+                 clearInterval(timer);
+                 var e = document.createEvent('Events');
+                 e.initEvent('jam_loaded',true,true);
+                 document.dispatchEvent(e);
+             }
+        } , 1);
     Jam.ready = function(ready_callback){
         var state = document.readyState;
         if ( ( state == 'loaded' || state == 'complete' ) ){
