@@ -2347,7 +2347,8 @@ exitNow:
 
 - (id)objectFromJSONString
 {
-  return([self objectFromJSONStringWithParseOptions:JKParseOptionStrict error:NULL]);
+    //JKParseOptionStrict is origin option
+  return([self objectFromJSONStringWithParseOptions:JKParseOptionLooseUnicode error:NULL]);
 }
 
 - (id)objectFromJSONStringWithParseOptions:(JKParseOptionFlags)parseOptionFlags

@@ -82,7 +82,7 @@
     NSArray* arySplitByParam = [action componentsSeparatedByString:@"?"];    
     if (arySplitByParam.count > 1) {
         // we do have params
-        klassAndMethod = [arySplitByParam objectAtIndex:0];
+        klassAndMethod = arySplitByParam[0];
         params = [action stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@?,klassAndMethod"] withString:@""];           
         
         //decode json values
@@ -94,17 +94,17 @@
     
     NSArray* aryClassAndMethod = [klassAndMethod componentsSeparatedByString:@"."];
     if (aryClassAndMethod.count == 2){
-        klass = [aryClassAndMethod objectAtIndex:0];
-        method= [aryClassAndMethod objectAtIndex:1];
+        klass = aryClassAndMethod[0];
+        method= aryClassAndMethod[1];
     }
     
     if (!(klass && method)) return NO;
     
-    JamCommand* command = [_commands objectForKey:klass];
+    JamCommand* command = _commands[klass];
     if (!command) {
             command = [[NSClassFromString(klass) alloc] initWithJam:self];
         if (command) {
-            [_commands setObject:command forKey:klass];
+            _commands[klass] = command;
             [command release];
         }
     }
@@ -126,7 +126,7 @@
 decisionListener:(id<WebPolicyDecisionListener>)listener
 {
 
-    NSURL* url = [actionInformation objectForKey:WebActionOriginalURLKey];
+    NSURL* url = actionInformation[WebActionOriginalURLKey];
     if ([url isFileURL]) {
         [listener use];
     }else{
@@ -181,7 +181,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
 {
     if (command) {
         command.jam = self;
-        [_commands setObject:command forKey:NSStringFromClass(command.class)]; 
+        _commands[NSStringFromClass(command.class)] = command; 
     }
 }
 
