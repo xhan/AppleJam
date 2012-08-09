@@ -13,9 +13,9 @@ Quick Start
 
 TODOS
 -----------
-√* callback supports
-√* callback return value
-√* basic demo
+* √callback supports
+* √callback return value
+* √basic demo
 * demo with params support
 * xcode debug support
 * call queue
