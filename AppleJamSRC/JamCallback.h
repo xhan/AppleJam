@@ -15,7 +15,7 @@
 
 
 @property(strong,nonatomic) NSString*uid;
-@property(weak,nonatomic) AppleJam* jam;
+@property(assign,nonatomic) AppleJam* jam;
 
 
 - (void)sendBack:(NSString*)value;

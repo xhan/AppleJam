@@ -23,7 +23,7 @@
     NSMutableDictionary*_modules;
     
 }
-@property(weak) id<AppleJamDelegate> delegate;
+@property(assign) id<AppleJamDelegate> delegate;
 
 - (id)initWithWebView:(WebView*)view path:(NSURL*)path;
 - (id)initWithWebView:(WebView*)view path:(NSURL*)path customScheme:(NSString*)scheme;

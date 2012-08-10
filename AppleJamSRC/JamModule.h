@@ -12,8 +12,8 @@
 @interface JamModule : NSObject
 
 - (id)initWithJam:(AppleJam*)jam;
-@property(weak,nonatomic) AppleJam* jam;
-//@property(strong,nonatomic) NSString*callbackID;
+@property(assign,nonatomic) AppleJam* jam;
 
 - (NSString*)runScript:(NSString*)script;
+
 @end

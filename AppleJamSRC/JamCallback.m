@@ -12,7 +12,6 @@
 @implementation JamCallback
 
 
-
 - (void)sendBack:(NSString*)value
 {
     [self sendBack:value clean:YES];
@@ -38,11 +37,15 @@
 + (id)params:(id)params callback:(NSString*)uid jam:(AppleJam*)jam
 {
     JamParams* p = [[JamParams alloc] init];
+    
+    JamCallback*callback = [[JamCallback alloc] init];
+    callback.uid = uid;
+    callback.jam = jam;
+
     p.params = params;
-    p.callback = [[JamCallback alloc] init];
-    p.callback.uid = uid;
-    p.callback.jam = jam;
-    return p;    
+    p.callback = callback;
+    II_RELEASE(callback);
+    return II_AUTORELEASE(p);
 }
 
 @end
