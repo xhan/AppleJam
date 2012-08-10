@@ -16,41 +16,28 @@
     int updates;
     JamCallback* callbackUpdates;
 }
-- (void)messagesend
+- (void)messagesend:(JamParams*)param
 {
-    [_delegate messagesend];
+    [_delegate messagesend:param.params];
 }
-- (void)getvalue:(id)value
+- (void)getvalue:(JamParams*)param
 {
     static int i = 0;
 
-    [_delegate getvalue:value];
-    if (self.callbackID) {
-        JamCallback*callback = [[JamCallback alloc] init];
-        callback.jam = self.jam;
-        callback.uid = self.callbackID;
-        i ++ ;
-        id value = [NSString stringWithFormat:@"%d",i];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [callback sendBack:value];
-            self.callbackID = nil;
-        });
-//        [callback performSelector:@selector(sendBack:)
-//                       withObject:value
-//                       afterDelay:0.1];
-    }
+    [_delegate getvalue:nil];
+    
+    i ++ ;
+    [param.callback sendBack: [NSString stringWithFormat:@"%d",i] ];
+
+    
 }
 
-- (void)startUpdate
+- (void)startUpdate:(JamParams*)param
 {
     if (timer) return;
     
     
-    if (self.callbackID) {
-        callbackUpdates = [[JamCallback alloc] init];
-        callbackUpdates.jam = self.jam;
-        callbackUpdates.uid = self.callbackID;
-    }
+    callbackUpdates = param.callback;
         
     timer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                              target:self

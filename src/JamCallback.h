@@ -21,3 +21,10 @@
 - (void)sendBackScript:(NSString*)script clean:(BOOL)clean;
 
 @end
+
+
+@interface JamParams : NSObject
++ (id)params:(id)params callback:(NSString*)uid jam:(AppleJam*)jam;
+@property(strong) id params;
+@property(strong) JamCallback* callback;
+@end

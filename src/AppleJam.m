@@ -8,6 +8,7 @@
 
 #import "AppleJam.h"
 #import "JamCommand.h"
+#import "JamCallback.h"
 #import "JSONKit.h"
 #import <WebKit/WebKit.h>
 
@@ -39,7 +40,9 @@
         
         [_webView setPolicyDelegate:self];  //handle navigation
         [_webView setFrameLoadDelegate:self];//hanlde load state
-        [_webView setEditingDelegate:self]; //disable text selection
+//        [_webView setEditingDelegate:self]; //disable text selection
+//        better way to handle it by add css body {-webkit-user-select: none;}
+        
         [_webView setUIDelegate:self];
         [_webView setDrawsBackground:NO];   //remove background
         
@@ -85,32 +88,35 @@
     
     NSString* scheme = [url scheme];
     NSString* action = [url host];
-    NSString* params = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    id params = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString* callbackID=[url fragment];
     if (![scheme isEqualToString:_scheme]) return NO;
     
-    NSString *klass =nil ,*method =nil ;
+    NSString *klass =nil ,*method =nil ,*methodParams = nil;
     
     //get class and method
     NSArray* aryClassAndMethod = [action componentsSeparatedByString:@"."];
     if (aryClassAndMethod.count == 2){
         klass = aryClassAndMethod[0];
         method= aryClassAndMethod[1];
+        methodParams = [method stringByAppendingString:@":"];
     }
     
     if (!(klass && method)) return NO;
     
-    if (params) {
-        params = [params objectFromJSONString]; //TODO: decode
-        method = [method stringByAppendingString:@":"];
+    params = [params objectFromJSONString];
+    if ([params isKindOfClass:NSArray.class] && [params count] == 1) {
+        params = [(NSArray*)params lastObject];
+    }else{
+        params = nil;
     }
     
-//    if (callbackID) {
-//        [method stringByAppendingString:@":"];
-//    }
+    JamParams* jamparams = nil;
+    if (params || callbackID) {
+        jamparams = [JamParams params:params callback:callbackID jam:self];
+    }
     
-    
-        
+    //TODO: add delegate
     JamCommand* command = _commands[klass];
     if (!command) {
             command = [[NSClassFromString(klass) alloc] initWithJam:self];
@@ -120,15 +126,17 @@
         }
     }
     
-    SEL _selector = NSSelectorFromString(method);
-    if ([command respondsToSelector:_selector]) {
-        
-        if (callbackID) {
-            command.callbackID = callbackID;
-        }
-        
+    
+    SEL _selectorParams  = NSSelectorFromString(methodParams);
+    SEL _selectorNoParam = NSSelectorFromString(method);
+    SEL _selector = [command respondsToSelector:_selectorParams] ? _selectorParams : \
+        ([command respondsToSelector:_selectorNoParam] ? _selectorNoParam : NULL );
+    
+    
+    if ( _selector ) {
+        // add -Wno-arc-performSelector-leaks to Other Warning Flags (WARNING_CFLAGS) to ignore warning
         [command performSelector:_selector
-                      withObject:params];
+                      withObject:jamparams];
         
         return YES;
     }
@@ -184,14 +192,16 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
     return nil;
 }
 
+/*
 - (BOOL)webView:(WebView *)webView shouldChangeSelectedDOMRange:(DOMRange *)currentRange 
      toDOMRange:(DOMRange *)proposedRange 
        affinity:(NSSelectionAffinity)selectionAffinity 
  stillSelecting:(BOOL)flag
 {
-    // disable text selection
-    return NO;
+    // disable text selection -> return NO , but this will disable editing
+    return YES;
 }
+ */
 
 #pragma mark -
 

@@ -41,16 +41,15 @@
 
 #pragma mark - main view delegate
 
-- (void)messagesend
+- (void)messagesend:(NSString*)params
 {
-    [[NSAlert alertWithMessageText:@"hey i got you"
-                    defaultButton:@"yeah" alternateButton:@"cat!" otherButton:nil informativeTextWithFormat:@"cocoa:hi javascript. how are you doing?"] runModal];
+    [self.labelInfo setStringValue:params];
 }
 - (void)getvalue:(id)value
 {
     
 }
-- (void)startUpdate
+- (void)startUpdate:(id)value
 {
     
 }

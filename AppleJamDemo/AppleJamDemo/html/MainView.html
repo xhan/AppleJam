@@ -14,7 +14,7 @@
 				var identify = $(this).attr('id');
 				switch(identify){
 					case 'sendmsg':
-						mainview.sendMsg();
+						mainview.sendMsg($("#info").val() );
 						break;
 					case 'getv':
 						mainview.getValue(function(value){
@@ -35,16 +35,18 @@
 			
 		});
         </script>
+		<style>
+		body {-webkit-user-select: none;}
+		</style>
     </head>
     <body>
     	<h1>Apple Jam init...</h1>
     	<p> what about write cocoa interface in html?</p>
-		
-    	<button id="sendmsg">send message</button>
+		<input type='text' id='info' value="hello"></input> 
+    	<button id="sendmsg">send message</button><br /><br />
 		<button id="getv">get value</button>
-		<br />
 		<button id="start">start update</button>
-		<button id="stop">stop update</button>
+		<button id="stop">stop update</button>		
 		
     </body>
 </html>

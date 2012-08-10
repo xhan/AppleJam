@@ -59,7 +59,7 @@ Jam.define("bridge",function(){
                 return; //argus error
     	}
     	if (params)
-    	    url += "?" + encodeURIComponent(JSON.stringify(params));
+    	    url += "?" + encodeURIComponent(JSON.stringify([params]));
     	        	        	    
     	if (callback) {
     	    callback_count += 1;

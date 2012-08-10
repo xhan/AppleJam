@@ -15,7 +15,7 @@
 }
 - (id)initWithJam:(AppleJam*)jam;
 @property(weak,nonatomic) AppleJam* jam;
-@property(strong,nonatomic) NSString*callbackID;
+//@property(strong,nonatomic) NSString*callbackID;
 
 - (NSString*)runScript:(NSString*)script;
 @end

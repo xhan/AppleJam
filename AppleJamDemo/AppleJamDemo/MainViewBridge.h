@@ -13,9 +13,9 @@
 @protocol MainViewBridgeDelegate <NSObject>
 
 @required
-- (void)messagesend;
+- (void)messagesend:(id)value;
 - (void)getvalue:(id)value;
-- (void)startUpdate;
+- (void)startUpdate:(id)value;
 - (void)stopUpdate;
 @end
 
