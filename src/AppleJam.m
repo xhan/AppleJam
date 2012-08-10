@@ -7,7 +7,7 @@
 //
 
 #import "AppleJam.h"
-#import "JamCommand.h"
+#import "JamModule.h"
 #import "JamCallback.h"
 #import "JSONKit.h"
 #import <WebKit/WebKit.h>
@@ -16,6 +16,7 @@
 
 @interface AppleJam()
 - (void)insertJavascriptFile:(NSString*)path;
+- (BOOL)runCommandFromURL:(NSURL*)url;
 @end
 
 @implementation AppleJam
@@ -36,7 +37,7 @@
         _webView = view;
         II_RETAIN(_webView);
         
-        _commands = [[NSMutableDictionary alloc] init];
+        _modules = [[NSMutableDictionary alloc] init];
         
         [_webView setPolicyDelegate:self];  //handle navigation
         [_webView setFrameLoadDelegate:self];//hanlde load state
@@ -58,18 +59,12 @@
 {
     [_scheme release];
     [_webView release];
-    [_commands release];
+    [_modules release];
     [super dealloc];
 }
 #endif
 
 #pragma mark -
-
-- (void)setLoadedCallback:(id)target sel:(SEL)sel
-{
-    callback = target;
-    selector = sel;
-}
 
 - (NSString*)runScript:(NSString*)script
 {
@@ -116,13 +111,12 @@
         jamparams = [JamParams params:params callback:callbackID jam:self];
     }
     
-    //TODO: add delegate
-    JamCommand* command = _commands[klass];
+
+    JamModule* command = _modules[klass];
     if (!command) {
-            command = [[NSClassFromString(klass) alloc] initWithJam:self];
-        if (command) {
-            _commands[klass] = command;
-            II_RELEASE(command);
+        command = [self attachModuleClass:NSClassFromString(klass)];
+        if (!command) {
+            return NO;
         }
     }
     
@@ -157,7 +151,7 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
         [listener use];
     }else{
         BOOL result = [self runCommandFromURL:url];
-        NSLog(@"run command result %d",result);
+//        NSLog(@"run command result %d",result);
         if (result) {
             [listener ignore];
         }else{
@@ -173,16 +167,16 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
 {
     
 //    NSString* jquery = [[NSBundle mainBundle] pathForResource:@"jquery.js" ofType:nil];
-    NSString* jam = [[NSBundle mainBundle] pathForResource:@"AppleJamBase.js" ofType:nil];
+//    NSString* jam = [[NSBundle mainBundle] pathForResource:@"AppleJamBase.js" ofType:nil];
 //    [self insertJavascriptFile:jquery];
-    [self insertJavascriptFile:jam];
+//    [self insertJavascriptFile:jam];
 }
 
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    [callback performSelector:selector
-                   withObject:self];
+    if ([_delegate respondsToSelector:@selector(jam:loaded:)] )
+        [_delegate jam:self loaded:nil];
 }
 
 - (NSArray *)webView:(WebView *)sender contextMenuItemsForElement:(NSDictionary *)element 
@@ -205,11 +199,21 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
 
 #pragma mark -
 
-- (void)addCommandInstance:(JamCommand*)command
+- (JamModule*)attachModuleClass:(Class)klass
+{
+    JamModule *command = [[klass alloc] initWithJam:self];
+    [self attachModule:command];
+    
+    return II_AUTORELEASE(command);
+}
+
+- (void)attachModule:(JamModule*)command
 {
     if (command) {
         command.jam = self;
-        _commands[NSStringFromClass(command.class)] = command; 
+        _modules[NSStringFromClass(command.class)] = command;
+        if( [_delegate respondsToSelector:@selector(jam:moduleLoaded:)] )
+            [_delegate jam:self moduleLoaded:command];
     }
 }
 

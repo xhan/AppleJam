@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 xu han. All rights reserved.
 //
 
-#import "JamCommand.h"
+#import "JamModule.h"
 #import "AppleJam.h"
 
-@implementation JamCommand
+@implementation JamModule
 @synthesize jam = _jam;
 - (id)initWithJam:(AppleJam*)ajam
 {

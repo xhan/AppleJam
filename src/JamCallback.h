@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+//TODO: merge these classes together
+
 @class AppleJam;
 @interface JamCallback : NSObject
 
@@ -18,7 +20,6 @@
 
 - (void)sendBack:(NSString*)value;
 - (void)sendBack:(NSString*)value clean:(BOOL)clean;
-- (void)sendBackScript:(NSString*)script clean:(BOOL)clean;
 
 @end
 

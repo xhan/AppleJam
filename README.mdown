@@ -16,6 +16,8 @@ TODOS
 * √callback supports
 * √callback return value
 * √basic demo
-* demo with params support
+* √demo with params support
 * xcode debug support
+* brower debug mode
 * call queue
+* resource domain protect

@@ -10,7 +10,7 @@
 #import "AppleJam.h"
 #import "MainViewBridge.h"
 
-@interface AppDelegate()<MainViewBridgeDelegate>
+@interface AppDelegate()<MainViewBridgeDelegate,AppleJamDelegate>
 @end
 
 @implementation AppDelegate
@@ -27,12 +27,8 @@
     
     jam = [[AppleJam alloc] initWithWebView:self.webview
                                        path:mainviewURL];
-    
-    //TODO: move this step to jam delegate
-    MainViewBridge*command = [[MainViewBridge alloc] init];
-    command.delegate = self;
-    
-    [jam addCommandInstance: command];
+    jam.delegate = self;
+
 }
 
 - (IBAction)onValueChanged:(id)sender {
@@ -57,5 +53,20 @@
 {
     
 }
+
+#pragma mark - Jam Delegate
+- (void)jam:(AppleJam *)jam moduleLoaded:(JamModule *)module
+{
+    NSLog(@"jam module %@ loaded",module);
+    if ([module isKindOfClass:MainViewBridge.class]) {
+        ((MainViewBridge*)module).delegate = self;
+    }
+}
+
+- (void)jam:(AppleJam *)jam loaded:(id)null
+{
+    NSLog(@"jam loaded");
+}
+
 
 @end

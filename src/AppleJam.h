@@ -12,25 +12,36 @@
 // TODO: global drag, scroll event prevent
 // TODO: 属性控制, 是否有窗口等
 
-@class WebView,JamCommand;
+@class WebView,JamModule,AppleJam;
+@protocol AppleJamDelegate ;
+
+
 @interface AppleJam : NSObject
 {
     NSString *_scheme;
     WebView  *_webView;
-    NSMutableDictionary*_commands;
+    NSMutableDictionary*_modules;
     
-    id callback;
-    SEL selector;
 }
+@property(weak) id<AppleJamDelegate> delegate;
+
 - (id)initWithWebView:(WebView*)view path:(NSURL*)path;
 - (id)initWithWebView:(WebView*)view path:(NSURL*)path customScheme:(NSString*)scheme;
 
 - (NSString*)runScript:(NSString*)script;
 
-- (BOOL)runCommandFromURL:(NSURL*)url;
+- (JamModule*)attachModuleClass:(Class)klass;
+- (void)attachModule:(JamModule*)command;
 
-// -pageLoaded:(AppleJam*)jam
-- (void)setLoadedCallback:(id)target sel:(SEL)sel;
+@end
 
-- (void)addCommandInstance:(JamCommand*)command;
+
+
+
+@protocol AppleJamDelegate <NSObject>
+
+@optional
+- (void)jam:(AppleJam*)jam loaded:(id)null;
+- (void)jam:(AppleJam*)jam moduleLoaded:(JamModule*)module;
+
 @end

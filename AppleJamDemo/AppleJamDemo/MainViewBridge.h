@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "JamCommand.h"
+#import "JamModule.h"
 
 @protocol MainViewBridgeDelegate <NSObject>
 
@@ -20,7 +20,7 @@
 @end
 
 
-@interface MainViewBridge : JamCommand
+@interface MainViewBridge : JamModule
 @property(weak) id<MainViewBridgeDelegate> delegate;
 
 @end

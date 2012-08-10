@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @class AppleJam;
-@interface JamCommand : NSObject
-{
+@interface JamModule : NSObject
 
-}
 - (id)initWithJam:(AppleJam*)jam;
 @property(weak,nonatomic) AppleJam* jam;
 //@property(strong,nonatomic) NSString*callbackID;
