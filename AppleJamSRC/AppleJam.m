@@ -186,16 +186,16 @@ decisionListener:(id<WebPolicyDecisionListener>)listener
     return nil;
 }
 
-/*
+
 - (BOOL)webView:(WebView *)webView shouldChangeSelectedDOMRange:(DOMRange *)currentRange 
      toDOMRange:(DOMRange *)proposedRange 
        affinity:(NSSelectionAffinity)selectionAffinity 
  stillSelecting:(BOOL)flag
 {
     // disable text selection -> return NO , but this will disable editing
-    return YES;
+    return NO;
 }
- */
+
 
 #pragma mark -
 

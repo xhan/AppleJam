@@ -1,8 +1,8 @@
 //
 //  main.m
-//  AppleJamDemo
+//  BordlessWindowDemo
 //
-//  Created by xhan on 8/9/12.
+//  Created by xhan on 8/11/12.
 //  Copyright (c) 2012 xhan. All rights reserved.
 //
 

@@ -18,12 +18,22 @@
 		CA10DF1915D3FAE100D46987 /* MainView.html in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF1715D3FAE100D46987 /* MainView.html */; };
 		CA10DF1A15D3FAE100D46987 /* MainView.js in Resources */ = {isa = PBXBuildFile; fileRef = CA10DF1815D3FAE100D46987 /* MainView.js */; };
 		CA10DF1D15D3FB2600D46987 /* MainViewBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA10DF1C15D3FB2600D46987 /* MainViewBridge.m */; };
+		CA18350915DA72160084211F /* Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA18350815DA72160084211F /* Bridge.m */; };
+		CA18350D15DA7D980084211F /* JamBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CA18350C15DA7D980084211F /* JamBridge.m */; };
 		CA5AAFF415D4F7350089245C /* AppleJam.js in Resources */ = {isa = PBXBuildFile; fileRef = CA5AAFEC15D4F7350089245C /* AppleJam.js */; };
 		CA5AAFF515D4F7350089245C /* AppleJam.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AAFED15D4F7350089245C /* AppleJam.m */; };
 		CA5AAFF615D4F7350089245C /* JamCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AAFF015D4F7350089245C /* JamCallback.m */; };
 		CA5AAFF715D4F7350089245C /* JamModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AAFF215D4F7350089245C /* JamModule.m */; };
 		CA5AAFF815D4F7350089245C /* jquery.js in Resources */ = {isa = PBXBuildFile; fileRef = CA5AAFF315D4F7350089245C /* jquery.js */; };
 		CA5AAFFC15D4F7480089245C /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = CA5AAFFB15D4F7480089245C /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CAF13EF615D67512000F8A80 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA10DEE215D3F42800D46987 /* Cocoa.framework */; };
+		CAF13EFC15D67512000F8A80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAF13EFA15D67512000F8A80 /* InfoPlist.strings */; };
+		CAF13EFE15D67512000F8A80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF13EFD15D67512000F8A80 /* main.m */; };
+		CAF13F0215D67512000F8A80 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CAF13F0015D67512000F8A80 /* Credits.rtf */; };
+		CAF13F0515D67512000F8A80 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAF13F0415D67512000F8A80 /* AppDelegate.m */; };
+		CAF13F0815D67513000F8A80 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAF13F0615D67512000F8A80 /* MainMenu.xib */; };
+		CAF13F0E15D6757C000F8A80 /* BordlessView.html in Resources */ = {isa = PBXBuildFile; fileRef = CAF13F0D15D6757C000F8A80 /* BordlessView.html */; };
+		CAF13F0F15D675E1000F8A80 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA10DF0415D3F87D00D46987 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +56,10 @@
 		CA10DF1815D3FAE100D46987 /* MainView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = MainView.js; sourceTree = "<group>"; };
 		CA10DF1B15D3FB2600D46987 /* MainViewBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewBridge.h; sourceTree = "<group>"; };
 		CA10DF1C15D3FB2600D46987 /* MainViewBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewBridge.m; sourceTree = "<group>"; };
+		CA18350715DA72160084211F /* Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		CA18350815DA72160084211F /* Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bridge.m; sourceTree = "<group>"; };
+		CA18350B15DA7D980084211F /* JamBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JamBridge.h; sourceTree = "<group>"; };
+		CA18350C15DA7D980084211F /* JamBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JamBridge.m; sourceTree = "<group>"; };
 		CA5AAFEB15D4F7350089245C /* AppleJam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleJam.h; sourceTree = "<group>"; };
 		CA5AAFEC15D4F7350089245C /* AppleJam.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = AppleJam.js; sourceTree = "<group>"; };
 		CA5AAFED15D4F7350089245C /* AppleJam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleJam.m; sourceTree = "<group>"; };
@@ -57,6 +71,16 @@
 		CA5AAFF315D4F7350089245C /* jquery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.js; sourceTree = "<group>"; };
 		CA5AAFFA15D4F7480089245C /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		CA5AAFFB15D4F7480089245C /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		CAF13EF415D67512000F8A80 /* BordlessWindowDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BordlessWindowDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAF13EF915D67512000F8A80 /* BordlessWindowDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BordlessWindowDemo-Info.plist"; sourceTree = "<group>"; };
+		CAF13EFB15D67512000F8A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CAF13EFD15D67512000F8A80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CAF13EFF15D67512000F8A80 /* BordlessWindowDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BordlessWindowDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CAF13F0115D67512000F8A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		CAF13F0315D67512000F8A80 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CAF13F0415D67512000F8A80 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CAF13F0715D67512000F8A80 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CAF13F0D15D6757C000F8A80 /* BordlessView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BordlessView.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +90,15 @@
 			files = (
 				CA10DF0515D3F87E00D46987 /* WebKit.framework in Frameworks */,
 				CA10DEE315D3F42800D46987 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAF13EF115D67512000F8A80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAF13EF615D67512000F8A80 /* Cocoa.framework in Frameworks */,
+				CAF13F0F15D675E1000F8A80 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +113,7 @@
 				CA5AAFF915D4F7480089245C /* JSONKit */,
 				CA5AAFEA15D4F7350089245C /* AppleJamSRC */,
 				CA10DEE815D3F42800D46987 /* AppleJamDemo */,
+				CAF13EF715D67512000F8A80 /* BordlessWindowDemo */,
 				CA10DEE115D3F42800D46987 /* Frameworks */,
 				CA10DEDF15D3F42800D46987 /* Products */,
 			);
@@ -89,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CA10DEDE15D3F42800D46987 /* AppleJamDemo.app */,
+				CAF13EF415D67512000F8A80 /* BordlessWindowDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +178,7 @@
 			children = (
 				CA10DF1715D3FAE100D46987 /* MainView.html */,
 				CA10DF1815D3FAE100D46987 /* MainView.js */,
+				CAF13F0D15D6757C000F8A80 /* BordlessView.html */,
 			);
 			name = html;
 			path = AppleJamDemo/html;
@@ -160,6 +196,8 @@
 				CA5AAFF115D4F7350089245C /* JamModule.h */,
 				CA5AAFF215D4F7350089245C /* JamModule.m */,
 				CA5AAFF315D4F7350089245C /* jquery.js */,
+				CA18350B15DA7D980084211F /* JamBridge.h */,
+				CA18350C15DA7D980084211F /* JamBridge.m */,
 			);
 			name = AppleJamSRC;
 			path = ../AppleJamSRC;
@@ -173,6 +211,31 @@
 			);
 			name = JSONKit;
 			path = ../JSONKit;
+			sourceTree = "<group>";
+		};
+		CAF13EF715D67512000F8A80 /* BordlessWindowDemo */ = {
+			isa = PBXGroup;
+			children = (
+				CAF13F0315D67512000F8A80 /* AppDelegate.h */,
+				CAF13F0415D67512000F8A80 /* AppDelegate.m */,
+				CAF13F0615D67512000F8A80 /* MainMenu.xib */,
+				CAF13EF815D67512000F8A80 /* Supporting Files */,
+				CA18350715DA72160084211F /* Bridge.h */,
+				CA18350815DA72160084211F /* Bridge.m */,
+			);
+			path = BordlessWindowDemo;
+			sourceTree = "<group>";
+		};
+		CAF13EF815D67512000F8A80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAF13EF915D67512000F8A80 /* BordlessWindowDemo-Info.plist */,
+				CAF13EFA15D67512000F8A80 /* InfoPlist.strings */,
+				CAF13EFD15D67512000F8A80 /* main.m */,
+				CAF13EFF15D67512000F8A80 /* BordlessWindowDemo-Prefix.pch */,
+				CAF13F0015D67512000F8A80 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +256,23 @@
 			name = AppleJamDemo;
 			productName = AppleJamDemo;
 			productReference = CA10DEDE15D3F42800D46987 /* AppleJamDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CAF13EF315D67512000F8A80 /* BordlessWindowDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAF13F0B15D67513000F8A80 /* Build configuration list for PBXNativeTarget "BordlessWindowDemo" */;
+			buildPhases = (
+				CAF13EF015D67512000F8A80 /* Sources */,
+				CAF13EF115D67512000F8A80 /* Frameworks */,
+				CAF13EF215D67512000F8A80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BordlessWindowDemo;
+			productName = BordlessWindowDemo;
+			productReference = CAF13EF415D67512000F8A80 /* BordlessWindowDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -217,6 +297,7 @@
 			projectRoot = "";
 			targets = (
 				CA10DEDD15D3F42800D46987 /* AppleJamDemo */,
+				CAF13EF315D67512000F8A80 /* BordlessWindowDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -237,6 +318,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CAF13EF215D67512000F8A80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAF13EFC15D67512000F8A80 /* InfoPlist.strings in Resources */,
+				CAF13F0215D67512000F8A80 /* Credits.rtf in Resources */,
+				CAF13F0815D67513000F8A80 /* MainMenu.xib in Resources */,
+				CAF13F0E15D6757C000F8A80 /* BordlessView.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -251,6 +343,17 @@
 				CA5AAFF615D4F7350089245C /* JamCallback.m in Sources */,
 				CA5AAFF715D4F7350089245C /* JamModule.m in Sources */,
 				CA5AAFFC15D4F7480089245C /* JSONKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAF13EF015D67512000F8A80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAF13EFE15D67512000F8A80 /* main.m in Sources */,
+				CAF13F0515D67512000F8A80 /* AppDelegate.m in Sources */,
+				CA18350915DA72160084211F /* Bridge.m in Sources */,
+				CA18350D15DA7D980084211F /* JamBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +380,30 @@
 			isa = PBXVariantGroup;
 			children = (
 				CA10DEFF15D3F66100D46987 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		CAF13EFA15D67512000F8A80 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAF13EFB15D67512000F8A80 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CAF13F0015D67512000F8A80 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAF13F0115D67512000F8A80 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		CAF13F0615D67512000F8A80 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAF13F0715D67512000F8A80 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -359,6 +486,30 @@
 			};
 			name = Release;
 		};
+		CAF13F0915D67513000F8A80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BordlessWindowDemo/BordlessWindowDemo-Prefix.pch";
+				INFOPLIST_FILE = "BordlessWindowDemo/BordlessWindowDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CAF13F0A15D67513000F8A80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BordlessWindowDemo/BordlessWindowDemo-Prefix.pch";
+				INFOPLIST_FILE = "BordlessWindowDemo/BordlessWindowDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -376,6 +527,15 @@
 			buildConfigurations = (
 				CA10DEFD15D3F42900D46987 /* Debug */,
 				CA10DEFE15D3F42900D46987 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAF13F0B15D67513000F8A80 /* Build configuration list for PBXNativeTarget "BordlessWindowDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAF13F0915D67513000F8A80 /* Debug */,
+				CAF13F0A15D67513000F8A80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

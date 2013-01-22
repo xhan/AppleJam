@@ -20,13 +20,23 @@
 {
     id script = [NSString stringWithFormat:
                  @"Jam.callback(%@,%d,'%@')",_uid,clean,value];
-
+    NSLog(@"%@",script);
     dispatch_async(dispatch_get_main_queue(), ^{
         [_jam runScript: script];
     });
     
 }
 
+- (void)sendPure:(NSString*)pure clean:(BOOL)clean
+{
+    
+    id script = [NSString stringWithFormat:
+                 @"Jam.callback(%@,%d,%@)",_uid,clean,pure];
+    NSLog(@"%@",script);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_jam runScript: script];
+    });
+}
 
 @end
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<style>
+            body {
+/*                -webkit-user-select: none;*/
+            }
+            div {
+                -webkit-border-radius: 10px;
+                background-color: rgba(0,0,10, 0.5);
+                padding: 10px 10px 10px 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <script>
+            function clickBtn()
+            {
+                var name = "undefined";
+                if (  window.bridge ) name = "bridge";
+                
+                document.getElementById("field2").value = window.bridge.title;
+            }
+            
+            function copyText()
+            {
+                document.getElementById("field2").value=document.getElementById("field1").value;
+            }
+            </script>
+		<div>
+            <h1>Apple Jam init...</h1>
+            <p> what about write cocoa interface in html?</p>
+            Field1: <input type="text" id="field1" value="Hello World!" /><br />
+            Field2: <input type="text" id="field2" />
+            <br /><br />
+            <button onclick="clickBtn()">Copy Text</button>
+            
+            
+		</div>
+
+    </body>
+</html>

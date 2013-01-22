@@ -20,7 +20,7 @@
 
 - (void)sendBack:(NSString*)value;
 - (void)sendBack:(NSString*)value clean:(BOOL)clean;
-
+- (void)sendPure:(NSString*)pure clean:(BOOL)clean;
 @end
 
 

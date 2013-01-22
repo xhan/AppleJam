@@ -18,6 +18,7 @@
     AppleJam* jam;
 }
 @synthesize webview;
+@synthesize webview;
 @synthesize labelInfo;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification

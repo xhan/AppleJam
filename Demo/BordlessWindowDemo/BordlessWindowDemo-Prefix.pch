@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BordlessWindowDemo' target in the 'BordlessWindowDemo' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
